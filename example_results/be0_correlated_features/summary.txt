@@ -1,0 +1,28 @@
+Bike explanation experiment: be0_correlated_features
+Minimum chronological validation RMSE per model/seed/variant; no TRAIN+VAL refit
+TEST: retrospective hourly demand, unmodified regression predictions
+variant/model/seed | VAL RMSE | TEST RMSE | TEST MAE | near-optimal VAL
+full_spline_ridge_s42 | 146.490 | 167.490 | 114.864 | False
+full_spline_ridge_s43 | 146.490 | 167.490 | 114.864 | False
+full_spline_ridge_s44 | 146.490 | 167.490 | 114.864 | False
+full_random_forest_s42 | 122.558 | 141.110 | 101.340 | True
+full_random_forest_s43 | 122.459 | 141.056 | 101.354 | True
+full_random_forest_s44 | 122.249 | 141.492 | 101.663 | True
+full_gradient_boosting_s42 | 120.663 | 130.194 | 93.417 | True
+full_gradient_boosting_s43 | 120.663 | 130.194 | 93.417 | True
+full_gradient_boosting_s44 | 120.663 | 130.194 | 93.417 | True
+full_ebm_s42 | 146.010 | 167.294 | 114.868 | False
+full_ebm_s43 | 145.923 | 167.372 | 114.911 | False
+full_ebm_s44 | 145.905 | 167.394 | 114.910 | False
+temperature_only_spline_ridge_s42 | 146.998 | 167.704 | 114.930 | False
+temperature_only_spline_ridge_s43 | 146.998 | 167.704 | 114.930 | False
+temperature_only_spline_ridge_s44 | 146.998 | 167.704 | 114.930 | False
+temperature_only_random_forest_s42 | 122.789 | 140.425 | 100.254 | True
+temperature_only_random_forest_s43 | 122.794 | 140.360 | 100.403 | True
+temperature_only_random_forest_s44 | 122.796 | 140.289 | 100.403 | True
+temperature_only_gradient_boosting_s42 | 120.981 | 130.886 | 93.997 | True
+temperature_only_gradient_boosting_s43 | 120.981 | 130.886 | 93.997 | True
+temperature_only_gradient_boosting_s44 | 120.981 | 130.886 | 93.997 | True
+temperature_only_ebm_s42 | 146.704 | 167.394 | 114.900 | False
+temperature_only_ebm_s43 | 146.699 | 167.355 | 114.844 | False
+temperature_only_ebm_s44 | 146.665 | 167.407 | 114.895 | False

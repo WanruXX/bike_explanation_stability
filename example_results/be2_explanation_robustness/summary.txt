@@ -1,0 +1,5 @@
+Bike robustness: be2_explanation_robustness
+Source: be1_temperature_representation
+6 fixed models; 7 matched SHAP cases including saved baseline
+Inspect within-model sensitivity beside matched cross-model/representation differences.
+Intervals are exploratory and conditional; background changes alter the reference game.

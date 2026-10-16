@@ -1,0 +1,10 @@
+Bike explanation experiment: be1_temperature_representation
+Fixed candidates where configured; otherwise minimum chronological validation RMSE; no TRAIN+VAL refit
+TEST: retrospective hourly demand, unmodified regression predictions
+variant/model/seed | VAL RMSE | TEST RMSE | TEST MAE | near-optimal VAL
+full_random_forest_s42 | 122.558 | 141.110 | 101.340 | True
+full_gradient_boosting_s42 | 120.663 | 130.194 | 93.417 | True
+temperature_only_random_forest_s42 | 122.789 | 140.425 | 100.254 | True
+temperature_only_gradient_boosting_s42 | 120.981 | 130.886 | 93.997 | True
+apparent_temperature_only_random_forest_s42 | 122.071 | 140.880 | 101.079 | True
+apparent_temperature_only_gradient_boosting_s42 | 121.700 | 131.046 | 94.059 | True

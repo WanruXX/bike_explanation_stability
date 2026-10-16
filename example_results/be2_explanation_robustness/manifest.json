@@ -1,0 +1,385 @@
+{
+  "status": "completed",
+  "started_utc": "2026-10-07T21:02:42.481475+00:00",
+  "settings": {
+    "diagnostics_dir": "/content/jiushu/bike/results",
+    "source_run_label": "be1_temperature_representation",
+    "run_label": "be2_explanation_robustness",
+    "background_seeds": [
+      1729,
+      2718,
+      3141
+    ],
+    "shap_seeds": [
+      1729,
+      2718,
+      3141
+    ],
+    "permutation_cycles": [
+      10,
+      30
+    ],
+    "background_rows": [
+      128,
+      256
+    ],
+    "block_days": [
+      1,
+      7
+    ],
+    "bootstrap_repeats": 1000,
+    "bootstrap_seed": 2027,
+    "confidence_level": 0.95
+  },
+  "data_settings": {
+    "data_dir": "/content/jiushu/bike/data",
+    "download_url": "https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip",
+    "train_end": "2012-01-01",
+    "validation_end": "2012-07-01"
+  },
+  "source_report": "/content/jiushu/bike/results/be1_temperature_representation/report.json",
+  "source_settings": {
+    "model_names": [
+      "random_forest",
+      "gradient_boosting"
+    ],
+    "feature_variants": [
+      "full",
+      "temperature_only",
+      "apparent_temperature_only"
+    ],
+    "seeds": [
+      42
+    ],
+    "fixed_candidate_indices": {
+      "random_forest": 1,
+      "gradient_boosting": 1
+    },
+    "n_jobs": 1,
+    "near_optimal_relative_rmse": 0.05,
+    "permutation_repeats": 20,
+    "explanation_rows": 1024,
+    "explanation_seed": 1729,
+    "compute_shap": true,
+    "shap_rows": 64,
+    "shap_background_rows": 128,
+    "shap_permutation_cycles": 10,
+    "diagnostics_dir": "/content/jiushu/bike/results",
+    "run_label": "be1_temperature_representation",
+    "save_models": false
+  },
+  "source_versions": {
+    "python": "3.13.15",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.6.1",
+    "interpret-core": "0.7.8",
+    "shap": "0.49.1",
+    "joblib": "1.6.0",
+    "threadpoolctl": "3.7.0"
+  },
+  "versions": {
+    "python": "3.13.15",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.6.1",
+    "interpret-core": "0.7.8",
+    "shap": "0.49.1",
+    "joblib": "1.6.0",
+    "threadpoolctl": "3.7.0"
+  },
+  "data": {
+    "full": {
+      "feature_variant": "full",
+      "feature_names": [
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed"
+      ],
+      "feature_groups": {
+        "calendar": [
+          "season",
+          "yr",
+          "mnth"
+        ],
+        "daily_schedule": [
+          "hr",
+          "holiday",
+          "weekday",
+          "workingday"
+        ],
+        "temperature": [
+          "temp",
+          "atemp"
+        ],
+        "other_weather": [
+          "weathersit",
+          "hum",
+          "windspeed"
+        ]
+      },
+      "csv_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f",
+      "download_manifest": {
+        "url": "https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip",
+        "dataset_doi": "10.24432/C5W894",
+        "license": "CC BY 4.0",
+        "archive_sha256": "b70182d0d0508e9abbb79306ce5c0cec34869000f8220175ac83d11dbe845401",
+        "hour_csv_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f"
+      },
+      "task": "retrospective hourly demand regression",
+      "excluded_predictors": [
+        "instant",
+        "dteday",
+        "cnt",
+        "casual",
+        "registered"
+      ],
+      "support": {
+        "train": {
+          "rows": 8645,
+          "first_timestamp": "2011-01-01 00:00:00",
+          "last_timestamp": "2011-12-31 23:00:00"
+        },
+        "validation": {
+          "rows": 4358,
+          "first_timestamp": "2012-01-01 00:00:00",
+          "last_timestamp": "2012-06-30 23:00:00"
+        },
+        "test": {
+          "rows": 4376,
+          "first_timestamp": "2012-07-01 00:00:00",
+          "last_timestamp": "2012-12-31 23:00:00"
+        }
+      }
+    },
+    "temperature_only": {
+      "feature_variant": "temperature_only",
+      "feature_names": [
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "hum",
+        "windspeed"
+      ],
+      "feature_groups": {
+        "calendar": [
+          "season",
+          "yr",
+          "mnth"
+        ],
+        "daily_schedule": [
+          "hr",
+          "holiday",
+          "weekday",
+          "workingday"
+        ],
+        "temperature": [
+          "temp"
+        ],
+        "other_weather": [
+          "weathersit",
+          "hum",
+          "windspeed"
+        ]
+      },
+      "csv_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f",
+      "download_manifest": {
+        "url": "https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip",
+        "dataset_doi": "10.24432/C5W894",
+        "license": "CC BY 4.0",
+        "archive_sha256": "b70182d0d0508e9abbb79306ce5c0cec34869000f8220175ac83d11dbe845401",
+        "hour_csv_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f"
+      },
+      "task": "retrospective hourly demand regression",
+      "excluded_predictors": [
+        "instant",
+        "dteday",
+        "cnt",
+        "casual",
+        "registered"
+      ],
+      "support": {
+        "train": {
+          "rows": 8645,
+          "first_timestamp": "2011-01-01 00:00:00",
+          "last_timestamp": "2011-12-31 23:00:00"
+        },
+        "validation": {
+          "rows": 4358,
+          "first_timestamp": "2012-01-01 00:00:00",
+          "last_timestamp": "2012-06-30 23:00:00"
+        },
+        "test": {
+          "rows": 4376,
+          "first_timestamp": "2012-07-01 00:00:00",
+          "last_timestamp": "2012-12-31 23:00:00"
+        }
+      }
+    },
+    "apparent_temperature_only": {
+      "feature_variant": "apparent_temperature_only",
+      "feature_names": [
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "atemp",
+        "hum",
+        "windspeed"
+      ],
+      "feature_groups": {
+        "calendar": [
+          "season",
+          "yr",
+          "mnth"
+        ],
+        "daily_schedule": [
+          "hr",
+          "holiday",
+          "weekday",
+          "workingday"
+        ],
+        "temperature": [
+          "atemp"
+        ],
+        "other_weather": [
+          "weathersit",
+          "hum",
+          "windspeed"
+        ]
+      },
+      "csv_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f",
+      "download_manifest": {
+        "url": "https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip",
+        "dataset_doi": "10.24432/C5W894",
+        "license": "CC BY 4.0",
+        "archive_sha256": "b70182d0d0508e9abbb79306ce5c0cec34869000f8220175ac83d11dbe845401",
+        "hour_csv_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f"
+      },
+      "task": "retrospective hourly demand regression",
+      "excluded_predictors": [
+        "instant",
+        "dteday",
+        "cnt",
+        "casual",
+        "registered"
+      ],
+      "support": {
+        "train": {
+          "rows": 8645,
+          "first_timestamp": "2011-01-01 00:00:00",
+          "last_timestamp": "2011-12-31 23:00:00"
+        },
+        "validation": {
+          "rows": 4358,
+          "first_timestamp": "2012-01-01 00:00:00",
+          "last_timestamp": "2012-06-30 23:00:00"
+        },
+        "test": {
+          "rows": 4376,
+          "first_timestamp": "2012-07-01 00:00:00",
+          "last_timestamp": "2012-12-31 23:00:00"
+        }
+      }
+    }
+  },
+  "cases": [
+    {
+      "case_id": "baseline",
+      "axis": "saved_baseline",
+      "background_seed": 1729,
+      "shap_seed": 1729,
+      "permutation_cycles": 10,
+      "background_rows": 128
+    },
+    {
+      "case_id": "background_seed_2718",
+      "axis": "background_seed",
+      "background_seed": 2718,
+      "shap_seed": 1729,
+      "permutation_cycles": 10,
+      "background_rows": 128
+    },
+    {
+      "case_id": "background_seed_3141",
+      "axis": "background_seed",
+      "background_seed": 3141,
+      "shap_seed": 1729,
+      "permutation_cycles": 10,
+      "background_rows": 128
+    },
+    {
+      "case_id": "shap_seed_2718",
+      "axis": "shap_seed",
+      "background_seed": 1729,
+      "shap_seed": 2718,
+      "permutation_cycles": 10,
+      "background_rows": 128
+    },
+    {
+      "case_id": "shap_seed_3141",
+      "axis": "shap_seed",
+      "background_seed": 1729,
+      "shap_seed": 3141,
+      "permutation_cycles": 10,
+      "background_rows": 128
+    },
+    {
+      "case_id": "permutation_cycles_30",
+      "axis": "permutation_cycles",
+      "background_seed": 1729,
+      "shap_seed": 1729,
+      "permutation_cycles": 30,
+      "background_rows": 128
+    },
+    {
+      "case_id": "background_rows_256",
+      "axis": "background_rows",
+      "background_seed": 1729,
+      "shap_seed": 1729,
+      "permutation_cycles": 10,
+      "background_rows": 256
+    }
+  ],
+  "rebuild_models_authorized": true,
+  "limitations": [
+    "Exploratory reuse of an inspected TEST period; no confirmatory significance claims",
+    "Background samples and size change the empirical reference game, not just approximation noise",
+    "Intervals condition on fitted models and fixed perturbation/reference design; no training uncertainty",
+    "Non-overlapping calendar blocks assume resampling is meaningful despite temporal shift",
+    "Sparse fixed SHAP rows cover occupied blocks only, not all hourly outcomes",
+    "Larger SHAP budgets are comparators, not ground truth; intervals have no multiplicity correction"
+  ],
+  "finished_utc": "2026-10-07T21:35:32.489115+00:00",
+  "model_modes": {
+    "full_random_forest_s42": "explicit_saved_settings_reconstruction",
+    "full_gradient_boosting_s42": "explicit_saved_settings_reconstruction",
+    "temperature_only_random_forest_s42": "explicit_saved_settings_reconstruction",
+    "temperature_only_gradient_boosting_s42": "explicit_saved_settings_reconstruction",
+    "apparent_temperature_only_random_forest_s42": "explicit_saved_settings_reconstruction",
+    "apparent_temperature_only_gradient_boosting_s42": "explicit_saved_settings_reconstruction"
+  }
+}
